@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Book My Show</title>
+</head>
+
+<body>
+
+  <!-- ✅ HEADER -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-text">book<span class="my">my</span>show</span>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities" />
+    </div>
+
+    <div class="nav-right">
+    </div>
+    <!-- Trigger Button -->
+    <div class="open-btn" onclick="toggleModal()">📍 Kanpur <span class="arrow">▼</span></div>
+
+    <!-- Overlay + Modal -->
+    <div class="overlay" id="overlay" onclick="closeModalOutside(event)">
+      <div class="modal" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="toggleModal()">×</span>
+
+        <div class="search-box">
+          <input type="text" placeholder="Search for your city" />
+        </div>
+
+        <div class="detect-location">📍 Detect my location</div>
+
+        <h3>Popular Cities</h3>
+        <div class="cities">
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/mumbai-selected.png" /><span>Mumbai</span>
+          </div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/ncr.png" /><span>Delhi-NCR</span></div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/bang.png" /><span>Bengaluru</span></div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/hyd.png" /><span>Hyderabad</span></div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/chd.png" /><span>Chandigarh</span></div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/ahd.png" /><span>Ahmedabad</span></div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/chen.png" /><span>Chennai</span></div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/pune.png" /><span>Pune</span></div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/kolk-selected.png" /><span>Kolkata</span>
+          </div>
+          <div class="city"><img
+              src="https://in.bmscdn.com/m6/images/common-modules/regions/koch.png" /><span>Kochi</span></div>
+        </div>
+
+        <div class="view-all">View All Cities</div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <button class="signin-btn" onclick="openLogin()">Sign In</button>
+
+    <div class="overlay" id="loginOverlay">
+      <div class="modal">
+        <span class="close-btn" onclick="closeLogin()">×</span>
+        <h2>Get Started</h2>
+
+        <!-- Button Login Options -->
+        <button class="login-option">
+          <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google" />
+          Continue with Google
+        </button>
+
+        <button class="login-option">
+          <img src="https://img.icons8.com/ios/50/000000/new-post.png" alt="Email" />
+          Continue with Email
+        </button>
+
+        <button class="login-option">
+          <img src="https://img.icons8.com/ios-filled/50/mac-os.png" alt="Apple" />
+          Continue with Apple
+        </button>
+
+        <div class="divider">OR</div>
+
+        <!-- Mobile Input -->
+        <div class="mobile-input">
+          <img src="https://img.icons8.com/color/48/india.png" alt="India Flag" />
+          +91 &nbsp; Continue with mobile number
+        </div>
+
+        <div class="terms">
+          I agree to the <a href="#">Terms & Conditions</a> & <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="topbar">
+      <span class="hamburger" onclick="toggleSidebar()">☰</span>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Hey!</h2>
+        <span class="close-btn" onclick="toggleSidebar()">×</span>
+      </div>
+
+      <div class="highlight-box">
+        <div>Unlock special offers<br />& great benefits</div>
+        <button>Login / Register</button>
+      </div>
+
+      <div class="menu-section">
+        <div class="menu-item">
+          <img class="icon" src="https://img.icons8.com/ios-glyphs/30/000000/appointment-reminders.png" />
+          Notifications
+        </div>
+
+        <div class="menu-item locked">
+          <img class="icon" src="https://img.icons8.com/ios/50/order-history.png" />
+          Your Orders
+        </div>
+
+        <div class="menu-item locked">
+          <img class="icon" src="https://img.icons8.com/ios/50/movie-projector.png" />
+          Stream Library
+        </div>
+
+        <div class="menu-item">
+          <img class="icon" src="https://img.icons8.com/material-outlined/24/rupee.png" />
+          Play Credit Card
+        </div>
+
+        <div class="menu-item">
+          <img class="icon" src="https://img.icons8.com/ios/50/help.png" />
+          Help & Support
+        </div>
+
+        <div class="menu-item locked">
+          <img class="icon" src="https://img.icons8.com/ios/50/settings.png" />
+          Accounts & Settings
+        </div>
+
+        <div class="menu-item">
+          <img class="icon" src="https://img.icons8.com/ios/50/gift.png" />
+          Rewards
+        </div>
+
+        <div class="menu-item">
+          <img class="icon" src="https://img.icons8.com/ios/50/change.png" />
+          BookAChange
+        </div>
+      </div>
+    </div>
+
+
+
+    </div>
+  </nav>
+
+
+
+  <nav class="main-nav">
+    <a href="#">Movies</a>
+    <a href="#">Streams</a>
+    <a href="#">Events</a>
+    <a href="#">Plays</a>
+    <a href="#">Sports</a>
+    <a href="#">Activities</a>
+    <a href="#" class="list-your-show">ListYourShow</a>
+    <a href="#">Corporates</a>
+    <a href="#">Offers</a>
+    <a href="#">Gift Cards</a>
+  </nav>
+
+  <div class="carousel-container">
+    <button class="scroll-button left" id="leftBtn">❮</button>
+
+    <div class="carousel" id="carousel">
+      <div class="card">
+        <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1754051963626_web.jpeg" alt="Event 1" />
+      </div>
+      <div class="card">
+        <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1744877848242_revplaycard1240x300.jpg"
+          alt="Event 2" />
+      </div>
+      <div class="card">
+        <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1753944605709_newdelhi.jpg" alt="Event 3" />
+      </div>
+      <div class="card">
+        <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1744877848242_revplaycard1240x300.jpg"
+          alt="Event 4" />
+      </div>
+      <div class="card">
+        <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1753705192741_halwaweb.jpg" alt="Event 5" />
+      </div>
+    </div>
+
+    <button class="scroll-button right" id="rightBtn">❯</button>
+  </div>
+  <!-- Recommended Movies Section -->
+  <section style="padding: 10px 10px;">
+    <h2 style="font-size: 30px; margin-bottom: 20px; text-align: left; padding-left: 90px;">
+      <b>Recommended Movies</b>
+    </h2>
+
+    <div class="recommended-wrapper">
+
+      <button class="scroll-btn left" onclick="scrollMovies('movieSlider1' ,-1)"">
+        &#10094;
+      </button>
+
+      <div class=" recommended-slider" id="movieSlider1">
+
+        <!-- Movie 1 -->
+        <div class="movie-card">
+          <img src="chand dur h.png" alt="">
+          <div class="rating">⭐ 8.3/10</div>
+          <div class="title">Chand Mera Dil</div>
+          <div class="genre">Drama/Romantic</div>
+        </div>
+
+        <!-- Movie 2 -->
+        <div class="movie-card">
+          <img src="pati patni or vo dono.png" alt="">
+          <div class="rating">⭐ 8.2/10</div>
+          <div class="title">Pati Patni or vo Dono</div>
+          <div class="genre">Drama/Romantic</div>
+        </div>
+
+        <!-- Movie 3 -->
+        <div class="movie-card">
+          <img src="the grogu.png" alt="">
+          <div class="rating">⭐ 8.5/10</div>
+          <div class="title">Star Wars</div>
+          <div class="genre">Action/Sci-Fi</div>
+        </div>
+
+        <!-- Movie 4 -->
+        <div class="movie-card">
+          <img src="bhut bangala.png" alt="">
+          <div class="rating">⭐ 9.8/10</div>
+          <div class="title">Bhooth Bangla</div>
+          <div class="genre">Comedy/Horror</div>
+        </div>
+
+        <!-- Movie 5 -->
+        <div class="movie-card">
+          <img src="krishna.png" alt="">
+          <div class="rating">⭐ 7.1/10</div>
+          <div class="title">Krishnavataram</div>
+          <div class="genre">Adventure/Drama</div>
+        </div>
+
+        <!-- Movie 6 -->
+        <div class="movie-card">
+          <img src="dadi ki sadi.png" alt="">
+          <div class="rating">⭐ 7.6/10</div>
+          <div class="title">Dadi ki Saadi</div>
+          <div class="genre">Comedy/Drama</div>
+        </div>
+
+        <!-- Movie 7 -->
+        <div class="movie-card">
+          <img
+            src="devil.png"
+            alt="devil">
+          <div class="rating">⭐ 8/10</div>
+          <div class="title">The Devil Wears Prada 2</div>
+          <div class="genre">Comedy/Drama</div>
+        </div>
+        <div class="movie-card">
+          <img
+            src="shivaji.png"
+            alt="">
+          <div class="rating">⭐ 8.9/10</div>
+          <div class="title">Raja Shivaji</div>
+          <div class="genre">Action/Drama/Historical</div>
+        </div>
+        <div class="movie-card">
+          <img
+            src="drishyam.png"
+            alt="">
+          <div class="rating">⭐ 8.6/10</div>
+          <div class="title">Drishyam 3</div>
+          <div class="genre">Drama/Mystery/Thriller</div>
+        </div>
+        <div class="movie-card">
+          <img
+            src="dhurandar.png"
+            alt="">
+          <div class="rating">⭐ 9.4/10</div>
+          <div class="title">Dhurandhar The Revange</div>
+          <div class="genre">Action/Drama</div>
+        </div>
+        <div class="movie-card">
+          <img
+            src=""
+            alt="">
+          <div class="rating">⭐ 7.9/10</div>
+          <div class="title">KingDom</div>
+          <div class="genre">Action/Drama</div>
+        </div>
+
+    </div>
+
+    <button class="scroll-btn right" onclick="scrollMovies('movieSlider1' ,1)">
+      &#10095;
+    </button>
+
+    </div>
+  </section>
+  
+
+ <section style="padding: 10px;">
+  <div
+    class="slide"
+    style="width: 100%; display: flex; justify-content: center;"
+  >
+    <img
+      src="slide.png"
+      alt="slide"
+      style="width: 100%; max-width: 1300px;"
+    >
+  </div>
+</section>
+
+
+  <section style="padding: 10px 10px;">
+    <h2 style="font-size: 30px; margin-bottom: 20px; text-align: left; padding-left: 90px;">
+      <b>Recommended Movies</b>
+    </h2>
+
+    <div class="recommended-wrapper">
+
+      <!-- Left Button -->
+      <button class="scroll-btn left" onclick="scrollMovies('movieSlider2', -1)">
+        &#10094;
+      </button>
+
+      <!-- Slider -->
+      <div class="recommended-slider" id="movieSlider2">
+
+        <!-- Movie 1 -->
+        <div class="movie-card">
+          <img src="chand dur h.png" alt="">
+          <div class="rating">⭐ 8.3/10</div>
+          <div class="title">Chand Mera Dil</div>
+          <div class="genre">Drama/Romantic</div>
+        </div>
+
+        <!-- Movie 2 -->
+        <div class="movie-card">
+          <img src="pati patni or vo dono.png" alt="">
+          <div class="rating">⭐ 8.2/10</div>
+          <div class="title">Pati Patni or vo Dono</div>
+          <div class="genre">Drama/Romantic</div>
+        </div>
+
+        <!-- Movie 3 -->
+        <div class="movie-card">
+          <img src="the grogu.png" alt="">
+          <div class="rating">⭐ 8.5/10</div>
+          <div class="title">Star Wars</div>
+          <div class="genre">Action/Sci-Fi</div>
+        </div>
+
+        <!-- Movie 4 -->
+        <div class="movie-card">
+          <img src="bhut bangala.png" alt="">
+          <div class="rating">⭐ 9.8/10</div>
+          <div class="title">Bhooth Bangla</div>
+          <div class="genre">Comedy/Horror</div>
+        </div>
+
+        <!-- Movie 5 -->
+        <div class="movie-card">
+          <img src="krishna.png" alt="">
+          <div class="rating">⭐ 7.1/10</div>
+          <div class="title">Krishnavataram</div>
+          <div class="genre">Adventure/Drama</div>
+        </div>
+
+        <!-- Movie 6 -->
+        <div class="movie-card">
+          <img src="dadi ki sadi.png" alt="">
+          <div class="rating">⭐ 7.6/10</div>
+          <div class="title">Dadi ki Saadi</div>
+          <div class="genre">Comedy/Drama</div>
+        </div>
+
+      </div>
+
+      <!-- Right Button -->
+      <button class="scroll-btn right" onclick="scrollMovies('movieSlider2', 1)">
+        &#10095;
+      </button>
+
+    </div>
+  </section>
+
+  <div class="top-bar">
+    <div><a href="#">📣 List your Show</a> &nbsp; Got a show, event, activity or a great experience? Partner with us &
+      get listed on BookMyShow</div>
+    <button class="contact-btn">Contact today!</button>
+  </div>
+
+  <div class="icons-section">
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/customer-support.png" />
+      <div>24/7 CUSTOMER CARE</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/ticket.png" />
+      <div>RESEND BOOKING CONFIRMATION</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" />
+      <div>SUBSCRIBE TO THE NEWSLETTER</div>
+    </div>
+  </div>
+  <section class="style">
+    <div class="footer-section">
+      <div>
+        <h6>MOVIES NOW SHOWING IN KOLKATA</h6>
+        <a href="#">Saiyaara</a><a
+          href="https://in.bookmyshow.com/movies/mahavatar-narsimha-3dhindi/ET00454695">Mahavatar Narsimha</a><a
+          href="#">Dhadak 2</a><a href="#">Son of Sardar
+          2</a><a href="#">The Fantastic Four</a><a href="#">Putulnacher Itikatha</a><a href="#">Jurassic World:
+          Rebirth</a><a href="#">Dear Maa</a><a href="#">The Bad Guys 2</a><a href="#">F1: The Movie</a>
+      </div>
+
+      <div>
+        <h6>UPCOMING MOVIES IN KOLKATA</h6>
+        <a href="#">Ghich Pich</a><a href="#">Holy Ghost</a><a href="#">Weapons</a><a href="#">Balu Gadi Love
+          Story</a><a href="#">Bharavase</a><a href="#">Black Night</a><a href="#">Freakier Friday</a><a href="#">Red
+          Flower</a><a href="#">Sahasam</a><a href="#">Bhai: Sleeper Cell</a>
+      </div>
+
+      <div>
+        <h6>MOVIES BY GENRE</h6>
+        <a href="#">Drama Movies</a><a href="#">Romantic Movies</a><a href="#">Action Movies</a><a href="#">Thriller
+          Movies</a><a href="#">Crime Movies</a><a href="#">Sci-Fi Movies</a><a href="#">Comedy Movies</a><a
+          href="#">Family Movies</a><a href="#">Animation Movies</a><a href="#">Adventure Movies</a>
+      </div>
+
+      <div>
+        <h6>MOVIES BY LANGUAGE</h6>
+        <a href="#">Movies in English</a><a href="#">Movies in Hindi</a><a href="#">Movies in Bengali</a><a
+          href="#">Movies in Konkani</a><a href="#">Movies in Portuguese</a><a href="#">Movies in Khasi</a><a
+          href="#">Movies in Nepali</a><a href="#">Movies in French</a><a href="#">Movies in Tulu</a><a href="#">Movies
+          in Sindhi</a>
+      </div>
+
+      <div>
+        <h6>SPORTS EVENTS IN KOLKATA</h6>
+        <a href="#">Chess</a><a href="#">Running</a><a href="#">Football</a><a href="#">Cycling</a><a
+          href="#">Cricket</a><a href="#">Mixed Martial Arts</a><a href="#">Horse Race</a><a href="#">Shooting</a><a
+          href="#">Wrestling</a><a href="#">Judo</a>
+      </div>
+
+      <div>
+        <h6>EVENTS IN TOP CITIES</h6>
+        <a href="#">Events in Mumbai</a><a href="#">Events in Delhi-NCR</a><a href="#">Events in Chennai</a><a
+          href="#">Events in Bengaluru</a><a href="#">Events in Hyderabad</a><a href="#">Events in Pune</a><a
+          href="#">Events in Ahmedabad</a><a href="#">Events in Kolkata</a><a href="#">Events in Kochi</a>
+      </div>
+
+      <div>
+        <h6>CINEMAS IN TOP CITIES</h6>
+        <a href="#">Cinemas in Mumbai</a><a href="#">Cinemas in Delhi-NCR</a><a href="#">Cinemas in Chennai</a><a
+          href="#">Cinemas in Bengaluru</a><a href="#">Cinemas in Hyderabad</a><a href="#">Cinemas in Pune</a><a
+          href="#">Cinemas in Ahmedabad</a><a href="#">Cinemas in Kolkata</a><a href="#">Cinemas in Kochi</a>
+      </div>
+
+      <hr>
+      <div class="logo">book<span>my</span>show</div>
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <!-- <a href="#"><i class="fab fa-x-twitter"></i></a> -->
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+
+      <div class="copyright">
+        Copyright 2025 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.<br />
+        The content and images used on this site are copyright protected and copyrights vest with the respective owners.
+        The usage of the content and images on this website is intended to promote the works and no endorsement of the
+        artist
+        shall be implied. Unauthorized use is prohibited and punishable by law.
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+  <script>
+    function openLogin() {
+      document.getElementById('loginOverlay').style.display = 'flex';
+    }
+
+    function closeLogin() {
+      document.getElementById('loginOverlay').style.display = 'none';
+    }
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+    const carousel = document.getElementById('carousel');
+    const leftBtn = document.getElementById('leftBtn');
+    const rightBtn = document.getElementById('rightBtn');
+
+    const card = carousel.querySelector('.card');
+    let cardWidth = card.offsetWidth;
+
+    // Manual scroll
+    leftBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+
+    rightBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+
+    // Auto scroll every 3 seconds
+    setInterval(() => {
+      carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+
+      // If end is reached, reset to start
+      if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 5) {
+        setTimeout(() => {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        }, 1000);
+      }
+    }, 3000);
+    function scrollMovies(sliderId, direction) {
+      const container = document.getElementById(sliderId);
+
+      const card = container.querySelector(".movie-card");
+      const cardWidth = card.offsetWidth + 20;
+
+      container.scrollBy({
+        left: direction * cardWidth * 5,
+        behavior: "smooth"
+      });
+    }
+    function toggleModal() {
+      const overlay = document.getElementById('overlay');
+      overlay.classList.toggle('active');
+    }
+
+    function closeModalOutside(event) {
+      const overlay = document.getElementById('overlay');
+      overlay.classList.remove('active');
+    }
+
+  </script>
+</body>
+
+</html>
